@@ -1,0 +1,24 @@
+.post-container {
+  width: 80%;
+  height: 20vh;
+  border: blue 1px solid;
+  margin: 10px auto;
+}
+
+.post-container .post-header {
+  max-width: 50%;
+  height: 50%;
+}
+
+.post-container .post-header .avatar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.post-container .post-header .avatar img {
+  height: 4em;
+  border-radius: 50%;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}

@@ -1,0 +1,12 @@
+.navigation {
+  width: 100%;
+  height: 30px;
+  border: 2px solid blue;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+}
+
+.navigation a {
+  padding: 80px;
+}
