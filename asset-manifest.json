@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/social-app.git/static/css/main.9e9ba1ca.chunk.css",
+    "main.js": "/social-app.git/static/js/main.6a1b37ab.chunk.js",
+    "main.js.map": "/social-app.git/static/js/main.6a1b37ab.chunk.js.map",
+    "runtime-main.js": "/social-app.git/static/js/runtime-main.d41d9e0c.js",
+    "runtime-main.js.map": "/social-app.git/static/js/runtime-main.d41d9e0c.js.map",
+    "static/js/2.d190492a.chunk.js": "/social-app.git/static/js/2.d190492a.chunk.js",
+    "static/js/2.d190492a.chunk.js.map": "/social-app.git/static/js/2.d190492a.chunk.js.map",
+    "static/js/3.51a419ab.chunk.js": "/social-app.git/static/js/3.51a419ab.chunk.js",
+    "static/js/3.51a419ab.chunk.js.map": "/social-app.git/static/js/3.51a419ab.chunk.js.map",
+    "index.html": "/social-app.git/index.html",
+    "static/css/main.9e9ba1ca.chunk.css.map": "/social-app.git/static/css/main.9e9ba1ca.chunk.css.map",
+    "static/js/2.d190492a.chunk.js.LICENSE.txt": "/social-app.git/static/js/2.d190492a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d41d9e0c.js",
+    "static/js/2.d190492a.chunk.js",
+    "static/css/main.9e9ba1ca.chunk.css",
+    "static/js/main.6a1b37ab.chunk.js"
+  ]
+}
