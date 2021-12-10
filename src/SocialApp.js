@@ -20,9 +20,9 @@ function SocialApp() {
         <Routes>
           {/* <Redirect from="/" to="/Feed" /> */}
           <Route path="/" element={<Layout />}>
-            <Route index path="feed" element={<Feed />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signUp" element={<SignUp />} />
+            <Route index path="/" element={<PostsList />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signUp" element={<SignUpPage />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
@@ -35,11 +35,8 @@ function Layout() {
   return (
     <div>
       <nav className="main-nav">
-        <Link className="main-nav-link" to="/feed">
+        <Link className="main-nav-link" to="/">
           Social-app
-        </Link>
-        <Link className="main-nav-link" to="/feed">
-          Feed
         </Link>
         <Link className="main-nav-link" to="/login">
           Login
@@ -51,30 +48,6 @@ function Layout() {
       <div className="outlet">
         <Outlet />
       </div>
-    </div>
-  );
-}
-
-function Feed() {
-  return (
-    <div>
-      <h2>Feed</h2>
-      <PostsList />
-    </div>
-  );
-}
-
-function Login() {
-  return (
-    <div>
-      <LoginPage />
-    </div>
-  );
-}
-function SignUp() {
-  return (
-    <div>
-      <SignUpPage />
     </div>
   );
 }

@@ -37,7 +37,7 @@ const PostsList = (props) => {
     getLatestPosts();
   }, []);
 
-  const xxx = latestPosts.map((changingArrayToDiv) => {
+  const posts = latestPosts.map((changingArrayToDiv) => {
     return (
       <div className="post-container" key={changingArrayToDiv.id}>
         <div className="post-header">
@@ -55,7 +55,7 @@ const PostsList = (props) => {
       </div>
     );
   });
-  console.log(xxx);
-  return <div className="posts-list">{xxx}</div>;
+  console.log(posts);
+  return <div className="posts-list">{posts}</div>;
 };
 export default PostsList;
