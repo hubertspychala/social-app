@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SignUpPage.css";
 import useForm from "./useForm";
 import validateInfo from "./validateInfo";
@@ -72,95 +72,24 @@ const SignUpPage = () => {
           />
           {errors.password2 && <p>{errors.password2}</p>}
         </div>
+        <br />
         <button className="form-input-btn" type="submit">
           Submit
         </button>
+        <br />
+        <br />
+        {isSubmitted ? (
+          <div className="succes-message">
+            Succes! Thank for your registeration!
+          </div>
+        ) : null}
+        <br />
         <span className="form-input-login">
-          Already have an account? Login <a href="#">here</a>
+          Already have an account? Login <a href="">here</a>
         </span>
       </form>
-      {isSubmitted ? (
-        <div className="succes-message">
-          Succes! Thank for your registeration!
-        </div>
-      ) : null}
     </div>
   );
 };
 
 export default SignUpPage;
-
-// const SignUpPage = (props) => {
-//   const [values, setValues] = useState({
-//     userName: "",
-//     emailAdress: "",
-//     password: "",
-//   });
-
-//   const [submitted, setSubmitted] = useState(false);
-//   const [valid, setValid] = useState(false);
-
-//   const handleUserNameInputChange = (event) => {
-//     setValues({ ...values, userName: event.target.value });
-//   };
-
-//   const handleEmailAdressInputChange = (event) => {
-//     setValues({ ...values, emailAdress: event.target.value });
-//   };
-
-//   const handlePasswordInputChange = (event) => {
-//     setValues({ ...values, password: event.target.value });
-//   };
-
-//   const handelSubmit = (event) => {
-//     event.preventDefault();
-//     if (values.userName && values.emailAdress && values.password) {
-//       setValid(true);
-//     }
-//     setSubmitted(true);
-//   };
-
-//   return (
-//     <div className="login">
-//       <h2>Sign Up </h2>
-//       <form className="register-form" onSubmit={handelSubmit}>
-//         <input
-//           onChange={handleUserNameInputChange}
-//           value={values.userName}
-//           placeholder="User Name"
-//           type="text"
-//           minLength="4"
-//         />
-//         {submitted && !values.userName ? (
-//           <span>Please enter your name</span>
-//         ) : null}
-
-//         <input
-//           onChange={handleEmailAdressInputChange}
-//           value={values.emailAdress}
-//           placeholder="Email adress"
-//           type="email"
-//         />
-//         {submitted && !values.emailAdress ? (
-//           <span>Please enter your e-mail</span>
-//         ) : null}
-//         <input
-//           onChange={handlePasswordInputChange}
-//           placeholder="Password"
-//           type="password"
-//         />
-//         {submitted && !values.password ? (
-//           <span>Enter your password</span>
-//         ) : null}
-//         <input placeholder="Confirm password" type="password" />
-//         <button type="submit">Sign Up</button>
-//       </form>
-//       {submitted && valid ? (
-//         <div className="succes-message">
-//           Succes! Thank for your registeration!
-//         </div>
-//       ) : null}
-//     </div>
-//   );
-// };
-// export default SignUpPage;

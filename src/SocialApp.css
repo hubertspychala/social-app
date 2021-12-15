@@ -20,6 +20,7 @@
   padding: 20px;
   position: fixed;
   top: 0;
+  background-color: cornflowerblue;
 }
 
 .main-nav a {

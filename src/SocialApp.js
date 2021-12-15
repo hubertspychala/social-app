@@ -2,7 +2,7 @@ import "./SocialApp.css";
 import PostsList from "./PostsList";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
-import React, { Component, useState, Redirect } from "react";
+import React from "react";
 import {
   Routes,
   Route,

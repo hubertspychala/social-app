@@ -1,10 +1,13 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./PostsList.css";
+import heart from "./icons/heart-svgrepo-com.svg";
+import moment from "moment";
 
 import axios from "axios";
 
 const PostsList = (props) => {
   const [latestPosts, setLatestPost] = useState([]);
+  const [lastPostDate, setLastPostDate] = useState("");
 
   function getLatestPosts() {
     let axiosConfig = {
@@ -22,11 +25,9 @@ const PostsList = (props) => {
       )
       .then((res) => {
         console.log("RESPONSE RECEIVED: ", res);
-        setLatestPost((prevState) => {
-          const result = prevState.concat(res.data);
-          console.log(result);
-          return result;
-        });
+        setLatestPost(res.data);
+        console.log(res.data);
+        setLastPostDate(res.data[res.data.lenght - 1].created_at);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -37,25 +38,59 @@ const PostsList = (props) => {
     getLatestPosts();
   }, []);
 
-  const posts = latestPosts.map((changingArrayToDiv) => {
+  function getLastPosts() {
+    let axiosConfig = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    };
+
+    axios
+      .post(
+        "https://akademia108.pl/api/social-app/post/older-then",
+        { date: lastPostDate },
+        axiosConfig
+      )
+      .then((res) => {
+        console.log("RESPONSE RECEIVED: ", res);
+        setLatestPost(res.data);
+        console.log(res.data);
+        setLastPostDate(res.data[res.data.lenght - 1].created_at);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      });
+  }
+
+  useEffect(() => {
+    getLastPosts();
+  }, [lastPostDate]);
+
+  const posts = latestPosts.map((post) => {
     return (
-      <div className="post-container" key={changingArrayToDiv.id}>
+      <div className="post-container" key={post.id}>
         <div className="post-header">
           <div className="avatar">
-            <img src={changingArrayToDiv.user.avatar_url} alt="" />
+            <img src={post.user.avatar_url} alt="" />
           </div>
-          <div className="nickname"></div>
-          <div className="post-date"></div>
+          <div className="nickname">{post.user.username}</div>
+          <div className="post-date">{moment(post.created_at).fromNow()}</div>
         </div>
-        <div className="post-content">{changingArrayToDiv.content}</div>
+        <div className="post-content">{post.content}</div>
         <div className="post-likes">
-          <img className="heart-logo" src="" alt="" />
-          <p className="likes-number"></p>
+          <img height={25} src={heart} alt="heart" />
+          <p className="likes-number">{post.likes.length}</p>
         </div>
       </div>
     );
   });
-  console.log(posts);
-  return <div className="posts-list">{posts}</div>;
+  return (
+    <div>
+      <div className="posts-list">{posts}</div>
+      <button onClick={getLastPosts}>Pobierz posty</button>
+    </div>
+  );
 };
+
 export default PostsList;

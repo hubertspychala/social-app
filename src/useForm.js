@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import validateInfo from "./validateInfo";
+import { useState } from "react";
+import validate from "./validateInfo";
+import axios from "axios";
 
-const useForm = (validateInfo) => {
+const useForm = (validate) => {
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -22,10 +23,37 @@ const useForm = (validateInfo) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setErrors(validateInfo(values));
-    setIsSubmitted(true);
+    setErrors(validate(values));
+    console.log(validate(values));
+    if (Object.keys(validate(values)).length !== 0) return;
+
+    let newUser = {
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
+    axios
+      .post(
+        "http://akademia108.pl/api/social-app/user/signup",
+        JSON.stringify(newUser),
+        { headers: headers }
+      )
+      .then((req) => {
+        setIsSubmitted(true);
+
+        console.log(req.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
-  return { handleChange, values, handleSubmit, errors };
+  return { handleChange, values, handleSubmit, errors, isSubmitted };
 };
 export default useForm;

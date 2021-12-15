@@ -15,7 +15,7 @@ export default function validateInfo(values) {
   } else if (
     values.password.search(/[!,#,@,$,%]/) < 0 &&
     values.password.search(/[0-9]/) < 0 &&
-    values.password.length < 6
+    values.password.length < 8
   ) {
     errors.password =
       "Password needs to be 6 characters, must contain one number and one of charts: ! # @ $ %";
