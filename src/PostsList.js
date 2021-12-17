@@ -27,7 +27,7 @@ const PostsList = (props) => {
         console.log("RESPONSE RECEIVED: ", res);
         setLatestPost(res.data);
         console.log(res.data);
-        setLastPostDate(res.data[res.data.lenght - 1].created_at);
+        setLastPostDate(res.data[res.data.length - 1].created_at);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -54,18 +54,14 @@ const PostsList = (props) => {
       )
       .then((res) => {
         console.log("RESPONSE RECEIVED: ", res);
-        setLatestPost(res.data);
+        setLatestPost(latestPosts.concat(res.data));
         console.log(res.data);
-        setLastPostDate(res.data[res.data.lenght - 1].created_at);
+        setLastPostDate(res.data[res.data.length - 1].created_at);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
       });
   }
-
-  useEffect(() => {
-    getLastPosts();
-  }, [lastPostDate]);
 
   const posts = latestPosts.map((post) => {
     return (
