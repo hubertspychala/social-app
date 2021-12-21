@@ -1,0 +1,40 @@
+h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #f2f2f2;
+}
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+input {
+  border: #f2f2f2 2px solid;
+  margin: 20px;
+  padding: 10px;
+  background-color: #65ccb8;
+
+  font-size: 18px;
+}
+::placeholder {
+  color: #f2f2f2;
+}
+
+button {
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 8px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 2px #f2f2f2 solid;
+  transition: 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  color: #f2f2f2;
+  background-color: #f76c6c;
+}
+span {
+  color: #f2f2f2;
+}

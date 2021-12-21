@@ -70,12 +70,20 @@ const PostsList = (props) => {
           <div className="avatar">
             <img src={post.user.avatar_url} alt="" />
           </div>
-          <div className="nickname">{post.user.username}</div>
-          <div className="post-date">{moment(post.created_at).fromNow()}</div>
+          <div className="name-wrapper">
+            <div className="nickname">
+              <p>{post.user.username}</p>
+            </div>
+            <div className="post-date">
+              <p>{moment(post.created_at).fromNow()}</p>
+            </div>
+          </div>
         </div>
-        <div className="post-content">{post.content}</div>
+        <div className="post-content">
+          <p>{post.content}</p>
+        </div>
         <div className="post-likes">
-          <img height={25} src={heart} alt="heart" />
+          <img height={18} src={heart} alt="heart" />
           <p className="likes-number">{post.likes.length}</p>
         </div>
       </div>

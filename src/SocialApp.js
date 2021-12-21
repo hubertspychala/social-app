@@ -3,6 +3,8 @@ import PostsList from "./PostsList";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import React, { useState } from "react";
+import axios from "axios";
+
 import {
   Routes,
   Route,
@@ -52,6 +54,31 @@ function Layout(props) {
   //   );
   // }
 
+  function logout() {
+    let axiosConfig = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    };
+
+    axios
+      .post(
+        "https://akademia108.pl/api/social-app/user/logout",
+        {},
+        axiosConfig
+      )
+      .then((res) => {
+        console.log("RESPONSE RECEIVED: ", res);
+        localStorage.clear();
+        // props.setUser(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("AXIOS ERROR: ", err);
+      });
+  }
+
   //  {props.user && <Navigate replace to="/" />}
 
   return (
@@ -71,7 +98,7 @@ function Layout(props) {
           </Link>
         )}
         {props.user && (
-          <Link className="main-nav-link" to="/">
+          <Link className="main-nav-link" to="/" onClick={logout}>
             Logout
           </Link>
         )}

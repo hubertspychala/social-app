@@ -2,6 +2,7 @@ import React from "react";
 import "./SignUpPage.css";
 import useForm from "./useForm";
 import validateInfo from "./validateInfo";
+import { Button } from "./Components/Button.style";
 
 const SignUpPage = () => {
   const { handleChange, values, handleSubmit, errors, isSubmitted } =
@@ -12,9 +13,6 @@ const SignUpPage = () => {
       <form className="form" onSubmit={handleSubmit}>
         <h1>Sign-Up</h1>
         <div className="form-inputs">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
           <input
             id="username"
             placeholder="Enter your username"
@@ -28,9 +26,6 @@ const SignUpPage = () => {
           {errors.username && <p>{errors.username}</p>}
         </div>
         <div className="form-inputs">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
           <input
             id="email"
             placeholder="Enter your email"
@@ -43,9 +38,6 @@ const SignUpPage = () => {
           {errors.email && <p>{errors.email}</p>}
         </div>
         <div className="form-inputs">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
           <input
             id="password"
             placeholder="Enter your password"
@@ -58,9 +50,6 @@ const SignUpPage = () => {
           {errors.password && <p>{errors.password}</p>}
         </div>
         <div className="form-inputs">
-          <label htmlFor="password2" className="form-label">
-            Confirm Password
-          </label>
           <input
             id="password2"
             placeholder="Confirm your password"
@@ -73,10 +62,7 @@ const SignUpPage = () => {
           {errors.password2 && <p>{errors.password2}</p>}
         </div>
         <br />
-        <button className="form-input-btn" type="submit">
-          Submit
-        </button>
-        <br />
+        <button>Submit</button>
         <br />
         {isSubmitted ? (
           <div className="succes-message">

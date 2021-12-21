@@ -4,7 +4,6 @@ import axios from "axios";
 
 import { Navigate } from "react-router-dom";
 
-
 const LoginPage = (props) => {
   const [formValue, setformValue] = useState({
     username: "",
@@ -34,8 +33,8 @@ const LoginPage = (props) => {
       )
       .then((res) => {
         console.log("RESPONSE RECEIVED: ", res);
-        localStorage.setItem('user', JSON.stringify(res.data));
-        props.setUser(res.data)
+        localStorage.setItem("user", JSON.stringify(res.data));
+        props.setUser(res.data);
         console.log(res.data);
       })
       .catch((err) => {
@@ -52,9 +51,8 @@ const LoginPage = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-
       {props.user && <Navigate replace to="/" />}
-      <p>Login Form</p>
+      <h1>Login Form</h1>
       <input
         type="text"
         name="username"
@@ -62,6 +60,7 @@ const LoginPage = (props) => {
         value={formValue.email}
         onChange={handleChange}
       />
+      <br />
       <input
         type="password"
         name="password"
@@ -69,7 +68,12 @@ const LoginPage = (props) => {
         value={formValue.password}
         onChange={handleChange}
       />
+      <br />
       <button type="submit">Login</button>
+      <br />
+      <span className="form-input-login">
+        Dont have an account yet? Sign-up <a href="/signUp">here</a>
+      </span>
     </form>
   );
 };

@@ -1,25 +1,78 @@
 .post-container {
-  width: 80%;
-  height: 20vh;
-  border: blue 1px solid;
-  margin: 10px auto;
+  width: 70%;
+  min-height: 10vh;
+  border: #f76c6c 1px solid;
+  border-radius: 10px;
+  margin: 20px auto;
+  background-color: #57ba98;
 }
 
 .post-container .post-header {
   max-width: 50%;
-  height: 50%;
+  min-height: 50%;
+  display: flex;
+  color: #182628;
 }
 
 .post-container .post-header .avatar {
   display: flex;
   justify-content: flex-start;
+  width: 7em;
 }
 
 .post-container .post-header .avatar img {
-  height: 4em;
+  height: 3em;
   border-radius: 50%;
   position: relative;
-  top: 5px;
-  left: 5px;
-  z-index: -1;
+  top: 20px;
+  left: 20px;
+}
+.post-container .post-header .name-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-container .post-header .nickname {
+  position: relative;
+  top: 14px;
+  left: 6px;
+  margin-right: 8px;
+}
+.post-container .post-header .nickname p {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.post-container .post-header .post-date {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.post-container .post-header .post-date p {
+  font-size: 16px;
+}
+.post-container .post-content {
+  position: relative;
+  left: 20px;
+  max-width: 70%;
+  text-align: left;
+}
+
+.post-container .post-content p {
+  font-size: 18px;
+}
+
+.post-container .post-likes {
+  position: relative;
+  left: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  line-height: 10px;
+}
+
+.post-container .post-likes p {
+  position: relative;
+  top: -12px;
+  left: 10px;
 }
