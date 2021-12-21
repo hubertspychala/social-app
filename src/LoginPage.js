@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import "./LoginPage.css";
 import axios from "axios";
 
-const LoginPage = () => {
-  const [formValue, setformValue] = React.useState({
-    email: "",
+import { Navigate } from "react-router-dom";
+
+
+const LoginPage = (props) => {
+  const [formValue, setformValue] = useState({
+    username: "",
     password: "",
   });
 
   const handleSubmit = (event) => {
-    const loginFormData = new FormData();
-    loginFormData.append("username", formValue.email);
-    loginFormData.append("password", formValue.password);
+    event.preventDefault();
 
+    console.log(formValue);
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json",
@@ -21,10 +23,19 @@ const LoginPage = () => {
     };
 
     axios
-      .post("https://akademia108.pl/api/social-app/user/login", {}, axiosConfig)
+      .post(
+        "https://akademia108.pl/api/social-app/user/login",
+        {
+          username: formValue.username,
+          password: formValue.password,
+          ttl: 3600,
+        },
+        axiosConfig
+      )
       .then((res) => {
         console.log("RESPONSE RECEIVED: ", res);
-
+        localStorage.setItem('user', JSON.stringify(res.data));
+        props.setUser(res.data)
         console.log(res.data);
       })
       .catch((err) => {
@@ -41,10 +52,12 @@ const LoginPage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+
+      {props.user && <Navigate replace to="/" />}
       <p>Login Form</p>
       <input
-        type="email"
-        name="email"
+        type="text"
+        name="username"
         placeholder="enter an email"
         value={formValue.email}
         onChange={handleChange}
