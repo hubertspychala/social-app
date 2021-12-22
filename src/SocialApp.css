@@ -34,10 +34,20 @@
   transition: 0.2s;
 }
 
+.main-nav a:first-child {
+  position: relative;
+  left: -200px;
+  color: #f0d7c3;
+}
+
 .main-nav a:hover {
   color: #f76c6c;
 }
 
+.main-nav a:first-child:hover {
+  color: #f2f2f2;
+}
+
 .outlet {
-  margin-top: 100px;
+  margin-top: 90px;
 }

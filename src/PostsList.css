@@ -1,9 +1,9 @@
 .post-container {
   width: 70%;
   min-height: 10vh;
-  border: #f76c6c 1px solid;
+  /* border: #f76c6c 1px solid; */
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 10px auto;
   background-color: #57ba98;
 }
 
@@ -35,7 +35,6 @@
 .post-container .post-header .nickname {
   position: relative;
   top: 14px;
-  left: 6px;
   margin-right: 8px;
 }
 .post-container .post-header .nickname p {
@@ -45,7 +44,7 @@
 
 .post-container .post-header .post-date {
   position: relative;
-  top: 20px;
+  top: 22px;
   left: 20px;
 }
 .post-container .post-header .post-date p {

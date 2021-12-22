@@ -4,6 +4,7 @@ import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import {
   Routes,
@@ -43,22 +44,17 @@ function SocialApp() {
 }
 
 function Layout(props) {
-  /* Request do logoutu */
-
-  // render() {
-  //   const count = 0;
-  //   return (
-  //     <div>
-  //       { count && <h1>Wiadomości: {count}</h1>}
-  //     </div>
-  //   );
-  // }
+  let navigate = useNavigate();
 
   function logout() {
+    let userData = localStorage.getItem("user");
+    let user = JSON.parse(userData);
+
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: "Bearer " + user.jwt_token,
       },
     };
 
@@ -70,9 +66,10 @@ function Layout(props) {
       )
       .then((res) => {
         console.log("RESPONSE RECEIVED: ", res);
-        localStorage.clear();
-        // props.setUser(res.data);
+        localStorage.removeItem("user");
         console.log(res.data);
+
+        navigate("/login", { replace: true });
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
