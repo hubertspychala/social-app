@@ -83,7 +83,7 @@ const PostsList = (props) => {
           <p>{post.content}</p>
         </div>
         <div className="post-likes">
-          <img height={18} src={heart} alt="heart" />
+          <img className="heart" height={18} src={heart} alt="heart" />
           <p className="likes-number">{post.likes.length}</p>
         </div>
       </div>

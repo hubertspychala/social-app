@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #65ccb8;
+  background-color: #36bfa3;
 }
 
 /* .App-header {
@@ -20,7 +20,7 @@
   padding: 20px;
   position: fixed;
   top: 0;
-  background-color: #3b945e;
+  background-color: #22453e;
   z-index: 2;
 }
 
@@ -37,7 +37,7 @@
 .main-nav a:first-child {
   position: relative;
   left: -200px;
-  color: #f0d7c3;
+  color: #36bfa3;
 }
 
 .main-nav a:hover {

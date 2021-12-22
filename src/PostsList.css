@@ -4,14 +4,13 @@
   /* border: #f76c6c 1px solid; */
   border-radius: 10px;
   margin: 10px auto;
-  background-color: #57ba98;
+  background-color: #204941;
 }
 
 .post-container .post-header {
   max-width: 50%;
   min-height: 50%;
   display: flex;
-  color: #182628;
 }
 
 .post-container .post-header .avatar {
