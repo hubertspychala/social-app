@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/social-app/static/css/main.6efdab88.chunk.css",
-    "main.js": "/social-app/static/js/main.fc5d5337.chunk.js",
-    "main.js.map": "/social-app/static/js/main.fc5d5337.chunk.js.map",
+    "main.css": "/social-app/static/css/main.78d023b2.chunk.css",
+    "main.js": "/social-app/static/js/main.34d34bc0.chunk.js",
+    "main.js.map": "/social-app/static/js/main.34d34bc0.chunk.js.map",
     "runtime-main.js": "/social-app/static/js/runtime-main.3d3e93f6.js",
     "runtime-main.js.map": "/social-app/static/js/runtime-main.3d3e93f6.js.map",
     "static/js/2.40aef8a1.chunk.js": "/social-app/static/js/2.40aef8a1.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.84a4d190.chunk.js": "/social-app/static/js/3.84a4d190.chunk.js",
     "static/js/3.84a4d190.chunk.js.map": "/social-app/static/js/3.84a4d190.chunk.js.map",
     "index.html": "/social-app/index.html",
-    "static/css/main.6efdab88.chunk.css.map": "/social-app/static/css/main.6efdab88.chunk.css.map",
+    "static/css/main.78d023b2.chunk.css.map": "/social-app/static/css/main.78d023b2.chunk.css.map",
     "static/js/2.40aef8a1.chunk.js.LICENSE.txt": "/social-app/static/js/2.40aef8a1.chunk.js.LICENSE.txt",
     "static/media/heart-svgrepo-com.2a49e9d1.svg": "/social-app/static/media/heart-svgrepo-com.2a49e9d1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3d3e93f6.js",
     "static/js/2.40aef8a1.chunk.js",
-    "static/css/main.6efdab88.chunk.css",
-    "static/js/main.fc5d5337.chunk.js"
+    "static/css/main.78d023b2.chunk.css",
+    "static/js/main.34d34bc0.chunk.js"
   ]
 }
