@@ -28,7 +28,7 @@ button {
   transition: 0.2s;
   cursor: pointer;
   color: #22453e;
-  width: 100px;
+  width: 200px;
 }
 button:hover {
   color: #f2f2f2;

@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import "./PostsList.css";
+import "./css/PostsList.css";
 import heart from "./icons/heart-svgrepo-com.svg";
 import moment from "moment";
-
 import axios from "axios";
+
 
 const PostsList = (props) => {
   const [latestPosts, setLatestPost] = useState([]);
   const [lastPostDate, setLastPostDate] = useState("");
 
   function getLatestPosts() {
+    console.log(props.user);
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: "Bearer " + (props.user ? props.user.jwt_token : ""),
       },
     };
 
@@ -43,6 +45,7 @@ const PostsList = (props) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: "Bearer " + (props.user ? props.user.jwt_token : ""),
       },
     };
 
@@ -64,10 +67,10 @@ const PostsList = (props) => {
   }
 
   const posts = latestPosts.map((post) => {
-    return (
+    return (      
       <div className="post-container" key={post.id}>
-        <div className="post-header">
-          <div className="avatar">
+                <div className="post-header">
+      <div className="avatar">
             <img src={post.user.avatar_url} alt="" />
           </div>
           <div className="name-wrapper">

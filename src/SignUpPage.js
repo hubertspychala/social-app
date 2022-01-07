@@ -1,8 +1,8 @@
 import React from "react";
-import "./SignUpPage.css";
+import "./css/SignUpPage.css";
 import useForm from "./useForm";
 import validateInfo from "./validateInfo";
-import { Button } from "./Components/Button.style";
+
 
 const SignUpPage = () => {
   const { handleChange, values, handleSubmit, errors, isSubmitted } =

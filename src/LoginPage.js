@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./LoginPage.css";
+import "./css/LoginPage.css";
 import axios from "axios";
 
 import { Navigate } from "react-router-dom";
@@ -13,13 +13,16 @@ const LoginPage = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(formValue);
+    // console.log(formValue);
     let axiosConfig = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     };
+
+    console.log(formValue.username);
+    console.log(formValue.password);
 
     axios
       .post(
@@ -32,10 +35,14 @@ const LoginPage = (props) => {
         axiosConfig
       )
       .then((res) => {
-        console.log("RESPONSE RECEIVED: ", res);
-        localStorage.setItem("user", JSON.stringify(res.data));
-        props.setUser(res.data);
-        console.log(res.data);
+        if (res.data.error) {
+          alert("Nieprawidłowe hasło lub login");
+        } else {
+          console.log("RESPONSE RECEIVED: ", res);
+          localStorage.setItem("user", JSON.stringify(res.data));
+          props.setUser(res.data);
+          console.log(res.data);
+        }
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
@@ -52,7 +59,7 @@ const LoginPage = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       {props.user && <Navigate replace to="/" />}
-      <h1>Login Form</h1>
+      <h1>Login</h1>
       <input
         type="text"
         name="username"

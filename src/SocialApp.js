@@ -1,10 +1,11 @@
-import "./SocialApp.css";
+import "./css/SocialApp.css";
 import PostsList from "./PostsList";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AddComment from "./AddComment";
 
 import {
   Routes,
@@ -12,10 +13,9 @@ import {
   Outlet,
   Link,
   BrowserRouter,
-  // Redirect,
 } from "react-router-dom";
 
-function SocialApp() {
+function SocialApp(props) {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user"))
       ? JSON.parse(localStorage.getItem("user"))
@@ -25,11 +25,11 @@ function SocialApp() {
   return (
     <div className="App">
       <header className="App-header" />
+      {!props.user && (<AddComment/> )}
       <BrowserRouter>
         <Routes>
-          {/* <Redirect from="/" to="/Feed" /> */}
-          <Route path="/" element={<Layout user={user} />}>
-            <Route index path="/" element={<PostsList />} />
+          <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+            <Route index path="/" element={<PostsList user={user} />} />
             <Route
               path="login"
               element={<LoginPage user={user} setUser={setUser} />}
@@ -47,8 +47,7 @@ function Layout(props) {
   let navigate = useNavigate();
 
   function logout() {
-    let userData = localStorage.getItem("user");
-    let user = JSON.parse(userData);
+    let user = props.user;
 
     let axiosConfig = {
       headers: {
@@ -68,8 +67,8 @@ function Layout(props) {
         console.log("RESPONSE RECEIVED: ", res);
         localStorage.removeItem("user");
         console.log(res.data);
-
         navigate("/login", { replace: true });
+        props.setUser(null);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
