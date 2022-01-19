@@ -5,15 +5,8 @@ import SignUpPage from "./SignUpPage";
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AddComment from "./AddComment";
 
-import {
-  Routes,
-  Route,
-  Outlet,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
+import { Routes, Route, Outlet, Link, BrowserRouter } from "react-router-dom";
 
 function SocialApp(props) {
   const [user, setUser] = useState(
@@ -25,11 +18,10 @@ function SocialApp(props) {
   return (
     <div className="App">
       <header className="App-header" />
-      {!props.user && (<AddComment/> )}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
-            <Route index path="/" element={<PostsList user={user} />} />
+            <Route path="/" element={<PostsList user={user} />} />
             <Route
               path="login"
               element={<LoginPage user={user} setUser={setUser} />}
@@ -74,8 +66,6 @@ function Layout(props) {
         console.log("AXIOS ERROR: ", err);
       });
   }
-
-  //  {props.user && <Navigate replace to="/" />}
 
   return (
     <div>

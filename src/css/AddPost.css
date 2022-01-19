@@ -1,11 +1,9 @@
-.add-post-wrapper{
-  
+.add-post-wrapper {
   margin-top: 100px;
-  margin-bottom: -80px;
-
 }
 
-#commentArea {
+#postArea {
   width: 100%;
   margin-bottom: 20px;
+  min-height: 100px;
 }
